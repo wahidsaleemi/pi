@@ -8,7 +8,7 @@ TODAY=`date '+%Y_%m_%d'`
 if ! openssl x509 -checkend $[ 86400 * $RENEW ] -noout -in /home/acme/signed.crt
         then
                 # Then make backup copy of existing cert before starting renew
-                cp /home/acme/signed.crt /home/acme/old/signed_backup_$TODAY.crt
+                cp /home/acme/signed.crt /home/acme/signed_backup_$TODAY.crt
                 # Then call the renewal script.
                 ./home/pi/pi/ssl/renew.sh
 fi
